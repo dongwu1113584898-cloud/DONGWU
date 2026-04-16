@@ -240,7 +240,7 @@
                         <i class="fab fa-weixin app-icon wechat-green"></i>
                         <div class="text-block">
                             <span class="btn-main-text">添加微信</span>
-                            <span class="btn-sub-text">点击复制号码并在微信搜索</span>
+                            <span class="btn-sub-text">点击复制号码，前往微信搜索添加好友~</span>
                         </div>
                     </div>
                     <i class="fas fa-chevron-right arrow-right"></i>
@@ -285,7 +285,7 @@
     <div id="toast"></div>
 
     <script>
-        const phoneNumber = '18924821068';
+        const phoneNumber = 'HiBREW-coffee';
 
         function showToast(msg) {
             const toast = document.getElementById("toast");
@@ -312,7 +312,7 @@
         // 只有微信需要复制功能，WhatsApp 和 官网 直接通过 href 跳转了
         document.getElementById('wechat-btn').addEventListener('click', function() {
             copyToClipboard(phoneNumber);
-            showToast('号码已复制！正在打开微信，请在搜索框粘贴添加。');
+            showToast('微信号已复制！正在打开微信，请在搜索框粘贴添加。');
             openWeChat();
         });
     </script>
