@@ -7,10 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            /* Colors based on reference */
-            --main-bg-color: #f7f7f3; /* Light beige/grey from reference */
-            --card-bg-color: #ffffff; /* Pure white card */
-            --logo-red: #B51C28; /* HiBREW Brand Red */
+            --main-bg-color: #f7f7f3; 
+            --card-bg-color: #ffffff; 
+            --logo-red: #B51C28; 
             --text-main: #333333;
             --text-sub: #888888;
             --btn-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -50,7 +49,6 @@
             box-sizing: border-box;
         }
 
-        /* Header (Logo & Name) */
         .profile-header {
             text-align: center;
             margin-bottom: 30px;
@@ -63,26 +61,19 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background-color: #ffffff;
+            background-color: var(--logo-red);
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 15px;
             box-shadow: var(--btn-shadow);
+            overflow: hidden;
         }
 
-        .circular-logo {
-            width: 50px; /* Red part dimensions */
-            height: 50px;
-            background-color: var(--logo-red);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 800;
-            color: #ffffff;
-            font-size: 16px;
-            letter-spacing: 1px;
+        .circular-logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .user-name {
@@ -98,21 +89,19 @@
             margin: 0;
         }
 
-        /* Separator from reference */
         .separator {
             width: 100%;
             height: 1px;
-            background-color: #f1f1f1;
+            background-color: #e5e5e5;
             margin: 0 0 30px;
             border: none;
         }
 
-        /* Action Buttons (Cards) */
         .action-links {
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 15px; /* Spacing between cards */
+            gap: 15px; 
         }
 
         .action-card {
@@ -138,7 +127,6 @@
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
         }
 
-        /* Inner Button Content */
         .action-content {
             display: flex;
             align-items: center;
@@ -154,16 +142,22 @@
             align-items: center;
         }
 
-        .wechat-green {
-            color: var(--wechat-green);
+        .app-icon-img {
+            width: 26px;
+            height: 26px;
+            object-fit: contain;
+            border-radius: 4px;
         }
         
-        .global-icon {
-            color: #6a1b9a;
+        .website-icon-img {
+            width: 24px;
+            height: 24px;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
-        .website-icon {
-            color: #03a9f4;
+        .wechat-green {
+            color: var(--wechat-green);
         }
 
         .text-block {
@@ -188,7 +182,6 @@
             font-size: 16px;
         }
 
-        /* Footer */
         .footer {
             margin-top: 40px;
             text-align: center;
@@ -197,7 +190,6 @@
             width: 100%;
         }
 
-        /* Toast notification */
         #toast {
             visibility: hidden;
             min-width: 280px;
@@ -230,11 +222,11 @@
             
             <div class="profile-header">
                 <div class="circular-logo-container">
-                    <div class="circular-logo">
-                        <span>Hi</span>
-                    </div>
+                    <!-- 头像使用 logo.jpg -->
+                    <img src="logo.jpg" alt="HiBREW Logo">
                 </div>
-                <div class="user-name">曾秋平 — HiBREW</div>
+                <!-- 名字修改 -->
+                <div class="user-name">Kenny_ HiBREW</div>
                 <div class="user-title">创始人 / CEO (Founder / CEO)</div>
             </div>
 
@@ -242,6 +234,7 @@
 
             <div class="action-links">
                 
+                <!-- 第一个按钮：微信 -->
                 <button class="action-card" id="wechat-btn">
                     <div class="action-content">
                         <i class="fab fa-weixin app-icon wechat-green"></i>
@@ -253,20 +246,25 @@
                     <i class="fas fa-chevron-right arrow-right"></i>
                 </button>
 
-                <button class="action-card" id="wechat-global-btn">
+                <!-- 第二个按钮：WhatsApp -->
+                <!-- 使用 wa.me 链接，填入完整的带有国家代码的电话号码 -->
+                <a href="https://wa.me/8618924821068" target="_blank" class="action-card">
                     <div class="action-content">
-                        <i class="fas fa-globe app-icon global-icon"></i>
+                        <!-- WhatsApp 图标 -->
+                        <img src="whatsapp-icon-logo-png_seeklogo-285144.png" alt="WhatsApp" class="app-icon-img">
                         <div class="text-block">
-                            <span class="btn-main-text">Add WeChat (Global)</span>
-                            <span class="btn-sub-text">Tap to copy number and search</span>
+                            <span class="btn-main-text">添加 WhatsApp</span>
+                            <span class="btn-sub-text">点击即可发起对话</span>
                         </div>
                     </div>
                     <i class="fas fa-chevron-right arrow-right"></i>
-                </button>
+                </a>
 
+                <!-- 第三个按钮：官网 -->
                 <a href="https://www.hibrew.com" target="_blank" class="action-card">
                     <div class="action-content">
-                        <i class="fas fa-globe-asia app-icon website-icon"></i>
+                        <!-- 官网图标使用 logo.jpg -->
+                        <img src="logo.jpg" alt="Website" class="website-icon-img">
                         <div class="text-block">
                             <span class="btn-main-text">访问官方网站</span>
                             <span class="btn-sub-text">www.hibrew.com</span>
@@ -277,8 +275,9 @@
 
             </div>
 
+            <!-- Footer 修改 -->
             <div class="footer">
-                FOSHAN SHUNDE BENE APPLIANCE TECH CO., LTD
+                &copy; 2026 HiBREW &middot; Just Make It Special.
             </div>
         </div>
     </div>
@@ -305,22 +304,15 @@
         }
 
         function openWeChat() {
-            // Delay a bit to allow reading toast message
             setTimeout(() => {
-                // Attempt to open WeChat application directly using its URI scheme
                 window.location.href = "weixin://";
             }, 1200); 
         }
 
+        // 只有微信需要复制功能，WhatsApp 和 官网 直接通过 href 跳转了
         document.getElementById('wechat-btn').addEventListener('click', function() {
             copyToClipboard(phoneNumber);
             showToast('号码已复制！正在打开微信，请在搜索框粘贴添加。');
-            openWeChat();
-        });
-
-        document.getElementById('wechat-global-btn').addEventListener('click', function() {
-            copyToClipboard(phoneNumber);
-            showToast('Number copied! Opening WeChat, please paste to search and add.');
             openWeChat();
         });
     </script>
